@@ -26,6 +26,10 @@ import javax.persistence.Table;
 @Table(name = "automoviles")
 public class Automovil implements Serializable {
 
+    @Lob
+    @Column(name = "foto")
+    private byte[] foto;
+
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -38,9 +42,6 @@ public class Automovil implements Serializable {
     @Basic(optional = false)
     @Column(name = "capacidad")
     private int capacidad;
-    @Lob
-    @Column(name = "foto")
-    private byte[] foto;
     @JoinColumn(name = "usuario_id", referencedColumnName = "usuario_id")
     @ManyToOne(optional = false)
     private Usuario usuarioId;
@@ -91,13 +92,6 @@ public class Automovil implements Serializable {
         this.capacidad = capacidad;
     }
 
-    public byte[] getFoto() {
-        return foto;
-    }
-
-    public void setFoto(byte[] foto) {
-        this.foto = foto;
-    }
 
     public Usuario getUsuarioId() {
         return usuarioId;
@@ -138,6 +132,14 @@ public class Automovil implements Serializable {
     @Override
     public String toString() {
         return "com.mbn.movil.model.entities.Automoviles[ automovilId=" + automovilId + " ]";
+    }
+
+    public byte[] getFoto() {
+        return foto;
+    }
+
+    public void setFoto(byte[] foto) {
+        this.foto = foto;
     }
     
 }
