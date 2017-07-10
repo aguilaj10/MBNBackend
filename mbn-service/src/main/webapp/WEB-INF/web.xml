@@ -3,7 +3,7 @@
 	      http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
          version="2.5">
 
-    <display-name>mbn-movil-service</display-name>
+    <display-name>mbn-service</display-name>
 
     <servlet>
         <servlet-name>mvc-dispatcher</servlet-name>

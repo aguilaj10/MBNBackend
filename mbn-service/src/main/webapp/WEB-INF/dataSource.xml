@@ -26,12 +26,12 @@
         <property name="annotatedClasses">
             <list>
 
-                <value>com.mbn.movil.model.entities.Automovil</value>
-                <value>com.mbn.movil.model.entities.Edificio</value>
-                <value>com.mbn.movil.model.entities.Habitacion</value>
-                <value>com.mbn.movil.model.entities.Reserva</value>
-                <value>com.mbn.movil.model.entities.Viaje</value>
-                <value>com.mbn.movil.model.entities.Usuario</value>
+                <value>com.mbn.model.entities.Automovil</value>
+                <value>com.mbn.model.entities.Edificio</value>
+                <value>com.mbn.model.entities.Habitacion</value>
+                <value>com.mbn.model.entities.Reserva</value>
+                <value>com.mbn.model.entities.Viaje</value>
+                <value>com.mbn.model.entities.Usuario</value>
             </list>
         </property>
         <property name="hibernateProperties">
