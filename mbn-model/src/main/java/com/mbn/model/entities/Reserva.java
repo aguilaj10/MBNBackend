@@ -13,8 +13,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -25,8 +23,6 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "reservas")
-@NamedQueries({
-    @NamedQuery(name = "Reservas.findAll", query = "SELECT r FROM Reservas r")})
 public class Reserva implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -134,7 +130,7 @@ public class Reserva implements Serializable {
 
     @Override
     public String toString() {
-        return "com.mbn.model.entities.Reservas[ reservaId=" + reservaId + " ]";
+        return "com.mbn.movil.model.entities.Reservas[ reservaId=" + reservaId + " ]";
     }
     
 }

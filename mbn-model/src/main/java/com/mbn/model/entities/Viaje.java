@@ -13,8 +13,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -25,8 +23,6 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "viajes")
-@NamedQueries({
-    @NamedQuery(name = "Viajes.findAll", query = "SELECT v FROM Viajes v")})
 public class Viaje implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -137,7 +133,7 @@ public class Viaje implements Serializable {
 
     @Override
     public String toString() {
-        return "com.mbn.model.entities.Viajes[ viajeId=" + viajeId + " ]";
+        return "com.mbn.movil.model.entities.Viajes[ viajeId=" + viajeId + " ]";
     }
     
 }

@@ -8,16 +8,12 @@ package com.mbn.model.entities;
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlTransient;
-import org.codehaus.jackson.annotate.JsonIgnore;
 
 /**
  *
@@ -25,8 +21,6 @@ import org.codehaus.jackson.annotate.JsonIgnore;
  */
 @Entity
 @Table(name = "usuarios")
-@NamedQueries({
-    @NamedQuery(name = "Usuarios.findAll", query = "SELECT u FROM Usuarios u")})
 public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -43,13 +37,12 @@ public class Usuario implements Serializable {
     private String apellidos;
     @Column(name = "estado")
     private String estado;
-    @Basic(optional = false)
     @Column(name = "usuario")
     private String usuario;
-    @ManyToMany(mappedBy = "usuariosCollection")
-    private Collection<Automovil> automovilesCollection;
     @OneToMany(mappedBy = "usuarioId")
     private Collection<Reserva> reservasCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuarioId")
+    private Collection<Automovil> automovilesCollection;
 
     public Usuario() {
     }
@@ -58,10 +51,9 @@ public class Usuario implements Serializable {
         this.usuarioId = usuarioId;
     }
 
-    public Usuario(Integer usuarioId, String contrasena, String usuario) {
+    public Usuario(Integer usuarioId, String contrasena) {
         this.usuarioId = usuarioId;
         this.contrasena = contrasena;
-        this.usuario = usuario;
     }
 
     public Integer getUsuarioId() {
@@ -95,6 +87,14 @@ public class Usuario implements Serializable {
     public void setApellidos(String apellidos) {
         this.apellidos = apellidos;
     }
+    
+     public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
 
     public String getEstado() {
         return estado;
@@ -104,30 +104,20 @@ public class Usuario implements Serializable {
         this.estado = estado;
     }
 
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
-    
-    @JsonIgnore @XmlTransient
-    public Collection<Automovil> getAutomovilesCollection() {
-        return automovilesCollection;
-    }
-
-    public void setAutomovilesCollection(Collection<Automovil> automovilesCollection) {
-        this.automovilesCollection = automovilesCollection;
-    }
-    
-    @JsonIgnore @XmlTransient
     public Collection<Reserva> getReservasCollection() {
         return reservasCollection;
     }
 
     public void setReservasCollection(Collection<Reserva> reservasCollection) {
         this.reservasCollection = reservasCollection;
+    }
+
+    public Collection<Automovil> getAutomovilesCollection() {
+        return automovilesCollection;
+    }
+
+    public void setAutomovilesCollection(Collection<Automovil> automovilesCollection) {
+        this.automovilesCollection = automovilesCollection;
     }
 
     @Override
@@ -152,7 +142,7 @@ public class Usuario implements Serializable {
 
     @Override
     public String toString() {
-        return "com.mbn.model.entities.Usuarios[ usuarioId=" + usuarioId + " ]";
+        return "com.mbn.movil.model.entities.Usuarios[ usuarioId=" + usuarioId + " ]";
     }
     
 }

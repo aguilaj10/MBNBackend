@@ -13,15 +13,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.Lob;
-import javax.persistence.ManyToMany;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlTransient;
-import org.codehaus.jackson.annotate.JsonIgnore;
 
 /**
  *
@@ -29,9 +24,11 @@ import org.codehaus.jackson.annotate.JsonIgnore;
  */
 @Entity
 @Table(name = "automoviles")
-@NamedQueries({
-    @NamedQuery(name = "Automoviles.findAll", query = "SELECT a FROM Automoviles a")})
 public class Automovil implements Serializable {
+
+    @Lob
+    @Column(name = "foto")
+    private byte[] foto;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -45,14 +42,9 @@ public class Automovil implements Serializable {
     @Basic(optional = false)
     @Column(name = "capacidad")
     private int capacidad;
-    @Lob
-    @Column(name = "foto")
-    private byte[] foto;
-    @JoinTable(name = "automoviles_usuarios", joinColumns = {
-        @JoinColumn(name = "automovil_id", referencedColumnName = "automovil_id")}, inverseJoinColumns = {
-        @JoinColumn(name = "usuario_id", referencedColumnName = "usuario_id")})
-    @ManyToMany
-    private Collection<Usuario> usuariosCollection;
+    @JoinColumn(name = "usuario_id", referencedColumnName = "usuario_id")
+    @ManyToOne(optional = false)
+    private Usuario usuarioId;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "automovilId")
     private Collection<Viaje> viajesCollection;
 
@@ -100,23 +92,15 @@ public class Automovil implements Serializable {
         this.capacidad = capacidad;
     }
 
-    public byte[] getFoto() {
-        return foto;
+
+    public Usuario getUsuarioId() {
+        return usuarioId;
     }
 
-    public void setFoto(byte[] foto) {
-        this.foto = foto;
+    public void setUsuarioId(Usuario usuarioId) {
+        this.usuarioId = usuarioId;
     }
 
-    public Collection<Usuario> getUsuariosCollection() {
-        return usuariosCollection;
-    }
-
-    public void setUsuariosCollection(Collection<Usuario> usuariosCollection) {
-        this.usuariosCollection = usuariosCollection;
-    }
-    
-    @JsonIgnore @XmlTransient
     public Collection<Viaje> getViajesCollection() {
         return viajesCollection;
     }
@@ -147,7 +131,15 @@ public class Automovil implements Serializable {
 
     @Override
     public String toString() {
-        return "com.mbn.model.entities.Automoviles[ automovilId=" + automovilId + " ]";
+        return "com.mbn.movil.model.entities.Automoviles[ automovilId=" + automovilId + " ]";
+    }
+
+    public byte[] getFoto() {
+        return foto;
+    }
+
+    public void setFoto(byte[] foto) {
+        this.foto = foto;
     }
     
 }

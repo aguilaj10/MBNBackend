@@ -11,12 +11,8 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlTransient;
-import org.codehaus.jackson.annotate.JsonIgnore;
 
 /**
  *
@@ -24,8 +20,7 @@ import org.codehaus.jackson.annotate.JsonIgnore;
  */
 @Entity
 @Table(name = "edificios")
-@NamedQueries({
-    @NamedQuery(name = "Edificios.findAll", query = "SELECT e FROM Edificios e")})
+
 public class Edificio implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -96,8 +91,7 @@ public class Edificio implements Serializable {
     public void setEstacionamiento(Boolean estacionamiento) {
         this.estacionamiento = estacionamiento;
     }
-    
-    @JsonIgnore @XmlTransient
+
     public Collection<Habitacion> getHabitacionesCollection() {
         return habitacionesCollection;
     }
@@ -128,7 +122,7 @@ public class Edificio implements Serializable {
 
     @Override
     public String toString() {
-        return "com.mbn.model.entities.Edificios[ edificioId=" + edificioId + " ]";
+        return "com.mbn.movil.model.entities.Edificios[ edificioId=" + edificioId + " ]";
     }
     
 }
