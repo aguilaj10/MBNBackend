@@ -5,12 +5,21 @@
  */
 package com.mbn.model.service;
 
+import com.mbn.model.dao.UsuarioDAO;
+import com.mbn.model.dto.UsuarioDTO;
 import com.mbn.model.entities.Usuario;
 
 /**
  *
  * @author annelkaren
  */
-public class UsuarioServiceImpl extends BaseServiceImpl<Usuario, Integer>{
-    
+public class UsuarioServiceImpl extends BaseServiceImpl<Usuario, Integer> implements UsuarioService {
+
+    @Override
+    public UsuarioDTO iniciarSesion(String usuario, String contrasena) {
+        UsuarioDTO dto = new UsuarioDTO();
+        dto.setUsuario(((UsuarioDAO) getGenericDAO()).iniciarSesion(usuario, contrasena));
+        return dto;
+    }
+
 }

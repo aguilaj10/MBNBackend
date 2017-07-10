@@ -5,6 +5,7 @@
  */
 package com.mbn.model.service;
 
+import com.mbn.model.dto.UsuarioDTO;
 import com.mbn.model.entities.Usuario;
 
 /**
@@ -13,4 +14,5 @@ import com.mbn.model.entities.Usuario;
  */
 public interface UsuarioService extends BaseService<Usuario, Integer>{
     
+    UsuarioDTO iniciarSesion(String usuario, String contrasena);
 }

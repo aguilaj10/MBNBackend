@@ -37,6 +37,8 @@ public class Usuario implements Serializable {
     private String apellidos;
     @Column(name = "estado")
     private String estado;
+    @Column(name = "usuario")
+    private String usuario;
     @OneToMany(mappedBy = "usuarioId")
     private Collection<Reserva> reservasCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuarioId")
@@ -84,6 +86,14 @@ public class Usuario implements Serializable {
 
     public void setApellidos(String apellidos) {
         this.apellidos = apellidos;
+    }
+    
+     public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
     public String getEstado() {

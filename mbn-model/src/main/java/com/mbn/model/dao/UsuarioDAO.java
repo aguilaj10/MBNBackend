@@ -14,4 +14,5 @@ import com.mbn.model.entities.Usuario;
  */
 public interface UsuarioDAO extends GenericDAO<Usuario, Integer>{
     
+    Usuario iniciarSesion(String usuario, String contrasena);
 }
