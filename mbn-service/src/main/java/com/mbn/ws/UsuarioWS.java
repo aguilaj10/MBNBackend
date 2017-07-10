@@ -30,7 +30,7 @@ public class UsuarioWS {
     
     @RequestMapping(value = "/iniciarSesion/", method = RequestMethod.POST)
     @ResponseBody
-    public UsuarioDTO guardarIcono( @RequestBody UsuarioDTO datos) {
+    public UsuarioDTO iniciarSesion( @RequestBody UsuarioDTO datos) {
        return usuarioService.iniciarSesion(datos.getUsuario().getUsuario(), datos.getUsuario().getContrasena());
     }
     
