@@ -14,8 +14,12 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlTransient;
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 /**
  *
@@ -23,6 +27,8 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "habitaciones")
+@NamedQueries({
+    @NamedQuery(name = "Habitaciones.findAll", query = "SELECT h FROM Habitaciones h")})
 public class Habitacion implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -127,6 +133,7 @@ public class Habitacion implements Serializable {
         this.edificioId = edificioId;
     }
 
+    @JsonIgnore @XmlTransient
     public Collection<Reserva> getReservasCollection() {
         return reservasCollection;
     }
@@ -157,7 +164,7 @@ public class Habitacion implements Serializable {
 
     @Override
     public String toString() {
-        return "com.mbn.movil.model.entities.Habitaciones[ habitacionId=" + habitacionId + " ]";
+        return "com.mbn.model.entities.Habitaciones[ habitacionId=" + habitacionId + " ]";
     }
     
 }
