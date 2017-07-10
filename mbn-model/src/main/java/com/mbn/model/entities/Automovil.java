@@ -5,6 +5,7 @@
  */
 package com.mbn.model.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Basic;
@@ -17,6 +18,7 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -100,7 +102,8 @@ public class Automovil implements Serializable {
     public void setUsuarioId(Usuario usuarioId) {
         this.usuarioId = usuarioId;
     }
-
+    
+    @XmlTransient @JsonIgnore
     public Collection<Viaje> getViajesCollection() {
         return viajesCollection;
     }

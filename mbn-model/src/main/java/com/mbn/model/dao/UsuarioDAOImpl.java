@@ -8,6 +8,7 @@ package com.mbn.model.dao;
 import com.googlecode.genericdao.dao.hibernate.GenericDAOImpl;
 import com.googlecode.genericdao.search.Search;
 import com.mbn.model.entities.Usuario;
+import com.mbn.model.util.StaticConstans;
 
 /**
  *
@@ -19,7 +20,8 @@ public class UsuarioDAOImpl extends GenericDAOImpl<Usuario, Integer> implements 
     public Usuario iniciarSesion(String usuario, String contrasena) {
         Search sql = new Search();
         sql.addFilterEqual("usuario", usuario.toLowerCase());
-        sql.addFilterEqual("contrasena", usuario);
+        sql.addFilterEqual("contrasena", contrasena);
+        sql.addFilterEqual("estado", StaticConstans.HABILITADO);
         return (Usuario) searchUnique(sql);
     }
 

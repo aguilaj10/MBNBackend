@@ -18,7 +18,8 @@ public class UsuarioServiceImpl extends BaseServiceImpl<Usuario, Integer> implem
     @Override
     public UsuarioDTO iniciarSesion(String usuario, String contrasena) {
         UsuarioDTO dto = new UsuarioDTO();
-        dto.setUsuario(((UsuarioDAO) getGenericDAO()).iniciarSesion(usuario, contrasena));
+        Usuario user = ((UsuarioDAO) getGenericDAO()).iniciarSesion(usuario, contrasena);
+        dto.setUsuario(user);
         return dto;
     }
 

@@ -14,4 +14,7 @@ public class StaticConstans {
     public static int MENSAJE_ERROR = 1;
     public static int MENSAJE_ADVERTENCIA = 2;
     public static int MENSAJE_CORRECTO = 3;
+    
+    public static String HABILITADO = "enable";
+    public static String INHABILITADO = "disable";
 }

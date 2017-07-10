@@ -5,6 +5,7 @@
  */
 package com.mbn.model.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Basic;
@@ -16,6 +17,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -126,7 +128,8 @@ public class Habitacion implements Serializable {
     public void setEdificioId(Edificio edificioId) {
         this.edificioId = edificioId;
     }
-
+    
+    @XmlTransient @JsonIgnore
     public Collection<Reserva> getReservasCollection() {
         return reservasCollection;
     }

@@ -5,6 +5,7 @@
  */
 package com.mbn.model.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Basic;
@@ -13,6 +14,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -91,7 +93,8 @@ public class Edificio implements Serializable {
     public void setEstacionamiento(Boolean estacionamiento) {
         this.estacionamiento = estacionamiento;
     }
-
+    
+    @XmlTransient @JsonIgnore
     public Collection<Habitacion> getHabitacionesCollection() {
         return habitacionesCollection;
     }

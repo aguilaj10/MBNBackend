@@ -14,6 +14,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlTransient;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  *
@@ -87,8 +89,8 @@ public class Usuario implements Serializable {
     public void setApellidos(String apellidos) {
         this.apellidos = apellidos;
     }
-    
-     public String getUsuario() {
+
+    public String getUsuario() {
         return usuario;
     }
 
@@ -104,6 +106,7 @@ public class Usuario implements Serializable {
         this.estado = estado;
     }
 
+    @XmlTransient @JsonIgnore
     public Collection<Reserva> getReservasCollection() {
         return reservasCollection;
     }
@@ -112,6 +115,7 @@ public class Usuario implements Serializable {
         this.reservasCollection = reservasCollection;
     }
 
+    @XmlTransient @JsonIgnore
     public Collection<Automovil> getAutomovilesCollection() {
         return automovilesCollection;
     }
@@ -144,5 +148,5 @@ public class Usuario implements Serializable {
     public String toString() {
         return "com.mbn.movil.model.entities.Usuarios[ usuarioId=" + usuarioId + " ]";
     }
-    
+
 }
