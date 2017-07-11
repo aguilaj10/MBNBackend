@@ -5,12 +5,9 @@
  */
 package com.mbn.ws;
 
-import com.mbn.model.dto.UsuarioDTO;
-import com.mbn.model.service.UsuarioService;
+import com.mbn.model.dto.ReservaDTO;
+import com.mbn.model.service.ReservaService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -18,20 +15,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  *
- * @author annelkaren
+ * @author lenovo
  */
-
 @RestController
 @RequestMapping("/ws")
-public class UsuarioWS {
+public class ReservaWS {
     
     @Autowired
-    private UsuarioService usuarioService;
+    private ReservaService reservaService;
     
-    @RequestMapping(value = "/iniciarSesion/", method = RequestMethod.POST)
+    @RequestMapping(value= "/obtenerReservas/", method = RequestMethod.GET)
     @ResponseBody
-    public UsuarioDTO iniciarSesion(@RequestBody UsuarioDTO datos) {
-       return usuarioService.iniciarSesion(datos.getUsuario().getUsuario(), datos.getUsuario().getContrasena());
+    public ReservaDTO obtenerReservas(){
+    return reservaService.obtenerReservaciones();
     }
-    
 }
