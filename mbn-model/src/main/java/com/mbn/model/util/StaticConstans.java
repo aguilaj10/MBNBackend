@@ -15,6 +15,8 @@ public class StaticConstans {
     public static int MENSAJE_ADVERTENCIA = 2;
     public static int MENSAJE_CORRECTO = 3;
     
+    public static String MENSAJE_ERROR_SESION = "El usuario o contraseña son incorrectos";
+    public static String MENSAJE_ERROR_GENERAL = "Ocurrió un error inesperado, contacte al administrador";
     public static String HABILITADO = "enable";
     public static String INHABILITADO = "disable";
 }

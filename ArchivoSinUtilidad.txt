@@ -1,0 +1,1 @@
+Archivo utilizado para hacer una prueba de funcionamiento de Git.
