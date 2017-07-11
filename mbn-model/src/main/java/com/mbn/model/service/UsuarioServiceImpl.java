@@ -8,6 +8,7 @@ package com.mbn.model.service;
 import com.mbn.model.dao.UsuarioDAO;
 import com.mbn.model.dto.UsuarioDTO;
 import com.mbn.model.entities.Usuario;
+import com.mbn.model.util.StaticConstans;
 
 /**
  *
@@ -18,8 +19,19 @@ public class UsuarioServiceImpl extends BaseServiceImpl<Usuario, Integer> implem
     @Override
     public UsuarioDTO iniciarSesion(String usuario, String contrasena) {
         UsuarioDTO dto = new UsuarioDTO();
-        Usuario user = ((UsuarioDAO) getGenericDAO()).iniciarSesion(usuario, contrasena);
-        dto.setUsuario(user);
+        try {
+            Usuario user = ((UsuarioDAO) getGenericDAO()).iniciarSesion(usuario, contrasena);
+            if (user != null) {
+                dto.setUsuario(user);
+            } else {
+                dto.setTipoMensaje(StaticConstans.MENSAJE_ERROR);
+                dto.setCodigoMensaje(StaticConstans.MENSAJE_ERROR_SESION);
+            }
+            dto.setUsuario(user);
+        } catch (Exception ex) {
+            dto.setTipoMensaje(StaticConstans.MENSAJE_ERROR);
+            dto.setCodigoMensaje(StaticConstans.MENSAJE_ERROR_GENERAL);
+        }
         return dto;
     }
 
