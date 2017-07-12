@@ -19,11 +19,23 @@
     <bean id="almacenDAO" class="com.mbn.model.dao.AlmacenDAOImpl">
         <property name="sessionFactory" ref="SessionFactory" />
     </bean>
+<<<<<<< HEAD
+=======
+    <bean id="automovilDAO" class="com.mbn.model.dao.AutomovilDAOImpl">
+        <property name="sessionFactory" ref="SessionFactory" />
+    </bean>
+    <bean id="automovilUsuarioDAO" class="com.mbn.model.dao.AutomovilUsuarioDAOImpl">
+        <property name="sessionFactory" ref="SessionFactory" />
+    </bean>
+>>>>>>> origin/jst-crudAutomoviles
     
     <!-- Service Declaration  -->
     <bean id="usuarioService" class="com.mbn.model.service.UsuarioServiceImpl">
         <property name="genericDAO" ref="usuarioDAO" />
         <property name="almacenDAO" ref="almacenDAO" />
+    </bean>
+    <bean id="automovilService" class="com.mbn.model.service.AutomovilServiceImpl">
+        <property name="genericDAO" ref="automovilDAO" />
     </bean>
     
 </beans>

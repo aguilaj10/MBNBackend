@@ -35,9 +35,18 @@ public class UsuarioWS {
        return usuarioService.iniciarSesion(datos.getUsuario().getUsuario(), datos.getUsuario().getContrasena());
     }
     
+<<<<<<< HEAD
      @RequestMapping(method = RequestMethod.GET, value = "/cambiarContrasena")
     @ResponseBody
     public UsuarioDTO cambiarContrasena(@RequestParam(value = "correo") String correo){
         return usuarioService.cambiarContrasena(correo);
     }
+=======
+    @RequestMapping(value = "/obtenerUsuarios/", method = RequestMethod.GET)
+    @ResponseBody
+    public UsuarioDTO buscarUsuarios() {
+        return usuarioService.buscarUsuarios();
+    }
+    
+>>>>>>> origin/jst-crudAutomoviles
 }
