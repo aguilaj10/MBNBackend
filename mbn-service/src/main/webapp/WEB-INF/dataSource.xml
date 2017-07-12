@@ -32,6 +32,7 @@
                 <value>com.mbn.model.entities.Reserva</value>
                 <value>com.mbn.model.entities.Viaje</value>
                 <value>com.mbn.model.entities.Usuario</value>
+                <value>com.mbn.model.entities.AlmacenUrls</value>
             </list>
         </property>
         <property name="hibernateProperties">

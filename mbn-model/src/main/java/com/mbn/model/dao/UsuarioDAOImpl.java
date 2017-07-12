@@ -25,4 +25,13 @@ public class UsuarioDAOImpl extends GenericDAOImpl<Usuario, Integer> implements 
         return (Usuario) searchUnique(sql);
     }
 
+    @Override
+    public Usuario buscarUsuarioPorEmail(String correo) {
+        Search sql = new Search();
+        sql.addFilterEqual("usuario", correo);
+        sql.addFilterEqual("estado", StaticConstans.HABILITADO);
+        return (Usuario) searchUnique(sql);
+    }
+
+    
 }

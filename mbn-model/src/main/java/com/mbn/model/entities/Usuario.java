@@ -25,6 +25,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Table(name = "usuarios")
 public class Usuario implements Serializable {
 
+    @OneToMany(mappedBy = "usuarioId")
+    private Collection<AlmacenUrls> almacenUrlsCollection;
+    
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -149,4 +152,12 @@ public class Usuario implements Serializable {
         return "com.mbn.movil.model.entities.Usuarios[ usuarioId=" + usuarioId + " ]";
     }
 
+     @XmlTransient @JsonIgnore
+    public Collection<AlmacenUrls> getAlmacenUrlsCollection() {
+        return almacenUrlsCollection;
+    }
+
+    public void setAlmacenUrlsCollection(Collection<AlmacenUrls> almacenUrlsCollection) {
+        this.almacenUrlsCollection = almacenUrlsCollection;
+    }
 }

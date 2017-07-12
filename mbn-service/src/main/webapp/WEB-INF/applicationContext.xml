@@ -26,6 +26,7 @@
     <!-- Service Declaration  -->
     <bean id="usuarioService" class="com.mbn.model.service.UsuarioServiceImpl">
         <property name="genericDAO" ref="usuarioDAO" />
+                <property name="almacenDAO" ref="almacenDAO" />
     </bean>
     <bean id="habitacionService" class="com.mbn.model.service.HabitacionServiceImpl">
         <property name="genericDAO" ref="habitacionDAO" />
