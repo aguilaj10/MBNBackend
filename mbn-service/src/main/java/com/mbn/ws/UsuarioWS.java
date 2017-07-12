@@ -34,4 +34,10 @@ public class UsuarioWS {
        return usuarioService.iniciarSesion(datos.getUsuario().getUsuario(), datos.getUsuario().getContrasena());
     }
     
+    @RequestMapping(value = "/obtenerUsuarios/", method = RequestMethod.GET)
+    @ResponseBody
+    public UsuarioDTO buscarUsuarios() {
+        return usuarioService.buscarUsuarios();
+    }
+    
 }

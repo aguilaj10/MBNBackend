@@ -83,6 +83,13 @@ private AlmacenDAO almacenDAO;
         return dto;
     }
 
+    @Override
+    public UsuarioDTO buscarUsuarios() {
+        UsuarioDTO dto = new UsuarioDTO();
+        dto.setUsuarios(((UsuarioDAO)getGenericDAO()).buscarUsuarios());
+        return dto;
+    }
+    
     /**
      * @return the almacenDAO
      */

@@ -7,6 +7,7 @@ package com.mbn.model.dao;
 
 import com.googlecode.genericdao.dao.hibernate.GenericDAO;
 import com.mbn.model.entities.Usuario;
+import java.util.List;
 
 /**
  *
@@ -30,5 +31,12 @@ public interface UsuarioDAO extends GenericDAO<Usuario, Integer>{
      * @return
      */
     Usuario buscarUsuarioPorEmail(String correo);
+    
+    /**
+     * Método que busca a todos los usuarios registrados
+     * 
+     * @return 
+     */
+    List<Usuario> buscarUsuarios();
     
 }
