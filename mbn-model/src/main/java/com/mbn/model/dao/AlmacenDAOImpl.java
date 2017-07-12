@@ -8,7 +8,6 @@ package com.mbn.model.dao;
 import com.googlecode.genericdao.dao.hibernate.GenericDAOImpl;
 import com.googlecode.genericdao.search.Search;
 import com.mbn.model.entities.AlmacenUrls;
-import org.hibernate.annotations.common.util.impl.Log_$logger;
 
 /**
  *
