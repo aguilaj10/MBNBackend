@@ -17,6 +17,6 @@ public interface EdificioDAO extends GenericDAO<Edificio, Integer>{
     
      List<Edificio> obtenerEdificios();
      
-     boolean guardarEdificio();
+     boolean guardarEdificio(Edificio edificio);
     
 }

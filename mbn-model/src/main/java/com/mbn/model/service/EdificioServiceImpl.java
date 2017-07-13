@@ -8,6 +8,8 @@ package com.mbn.model.service;
 import com.mbn.model.dao.EdificioDAO;
 import com.mbn.model.dto.EdificioDTO;
 import com.mbn.model.entities.Edificio;
+import com.mbn.model.util.StaticConstans;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
@@ -23,8 +25,15 @@ public class EdificioServiceImpl extends BaseServiceImpl<Edificio, Integer> impl
     }
 
     @Override
-    public EdificioDTO guardarEdificio() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    @Transactional(readOnly = false)
+    public EdificioDTO guardarEdificio(EdificioDTO edificio) {
+        EdificioDTO dto = new EdificioDTO();
+        if(((EdificioDAO) getGenericDAO()).guardarEdificio(edificio.getEdificio())){
+            dto.setTipoMensaje(StaticConstans.MENSAJE_CORRECTO);
+        }else{
+             dto.setTipoMensaje(StaticConstans.MENSAJE_ERROR);
+        }
+        return dto;
     }
     
 }

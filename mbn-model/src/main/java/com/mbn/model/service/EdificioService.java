@@ -15,5 +15,5 @@ import com.mbn.model.entities.Edificio;
 public interface EdificioService extends BaseService<Edificio, Integer>{
     
     EdificioDTO obtenerEdificios();
-    EdificioDTO guardarEdificio();
+    EdificioDTO guardarEdificio(EdificioDTO edificio);
 }
