@@ -6,6 +6,7 @@
 package com.mbn.model.service;
 
 import com.mbn.model.dto.HabitacionDTO;
+import com.mbn.model.dto.ReservaDTO;
 import com.mbn.model.entities.Habitacion;
 
 /**
@@ -17,4 +18,6 @@ public interface HabitacionService extends BaseService<Habitacion, Integer>{
     HabitacionDTO obtenerHabitaciones();
     
     HabitacionDTO guardarHabitacion(HabitacionDTO habitacion);
+    
+    HabitacionDTO obtenerHabitacionesFecha(ReservaDTO reservaDTO);
 }
