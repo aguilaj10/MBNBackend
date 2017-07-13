@@ -15,21 +15,17 @@ import java.util.List;
  *
  * @author lenovo
  */
-public class HabitacionDAOImpl extends GenericDAOImpl<Habitacion, Integer> implements HabitacionDAO{
-
-
+public class HabitacionDAOImpl extends GenericDAOImpl<Habitacion, Integer> implements HabitacionDAO {
 
     @Override
     public List<Habitacion> obtenerHabitaciones() {
         return findAll();
-        
-      
-        
+
     }
 
     @Override
     public boolean guardarHabitacion(Habitacion habitacion) {
         return save(habitacion);
-        }
-  
+    }
+
 }

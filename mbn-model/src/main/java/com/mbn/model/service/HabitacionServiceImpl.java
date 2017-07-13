@@ -9,6 +9,7 @@ import com.mbn.model.dao.HabitacionDAO;
 import com.mbn.model.dto.HabitacionDTO;
 import com.mbn.model.entities.Habitacion;
 import com.mbn.model.util.StaticConstans;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
@@ -24,6 +25,7 @@ public class HabitacionServiceImpl extends BaseServiceImpl<Habitacion, Integer> 
         }
 
     @Override
+    @Transactional(readOnly = false)
     public HabitacionDTO guardarHabitacion(HabitacionDTO habitacion) {
         HabitacionDTO dto = new HabitacionDTO();
         if(((HabitacionDAO) getGenericDAO()).guardarHabitacion(habitacion.getHabitacion())){

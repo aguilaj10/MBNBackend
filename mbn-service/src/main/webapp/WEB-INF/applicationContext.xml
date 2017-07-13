@@ -16,14 +16,19 @@
     <bean id="usuarioDAO" class="com.mbn.model.dao.UsuarioDAOImpl">
         <property name="sessionFactory" ref="SessionFactory" />
     </bean>
-<<<<<<< HEAD
+
     <bean id="habitacionDAO" class="com.mbn.model.dao.HabitacionDAOImpl">
         <property name="sessionFactory" ref="SessionFactory" />
     </bean>
     <bean id="reservaDAO" class="com.mbn.model.dao.ReservaDAOImpl">
-=======
+        <property name="sessionFactory" ref="SessionFactory" />
+    </bean>
+
     <bean id="almacenDAO" class="com.mbn.model.dao.AlmacenDAOImpl">
->>>>>>> master
+        <property name="sessionFactory" ref="SessionFactory" />
+    </bean>
+    
+    <bean id="edificioDAO" class="com.mbn.model.dao.EdificioDAOImpl">
         <property name="sessionFactory" ref="SessionFactory" />
     </bean>
     
@@ -32,11 +37,16 @@
         <property name="genericDAO" ref="usuarioDAO" />
         <property name="almacenDAO" ref="almacenDAO" />
     </bean>
+    
     <bean id="habitacionService" class="com.mbn.model.service.HabitacionServiceImpl">
         <property name="genericDAO" ref="habitacionDAO" />
     </bean>
     <bean id="ReservaService" class="com.mbn.model.service.ReservaServiceImpl">
         <property name="genericDAO" ref="reservaDAO" />
+    </bean>
+    
+    <bean id="edificioService" class="com.mbn.model.service.EdificioServiceImpl">
+        <property name="genericDAO" ref="edificioDAO" />
     </bean>
     
 </beans>

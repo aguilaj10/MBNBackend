@@ -22,8 +22,8 @@ public class EdificioDAOImpl extends GenericDAOImpl<Edificio, Integer> implement
     }
 
     @Override
-    public boolean guardarEdificio() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean guardarEdificio(Edificio edificio) {
+        return save(edificio);
     }
     
 }
