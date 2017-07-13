@@ -6,8 +6,10 @@
 package com.mbn.ws;
 
 import com.mbn.model.dto.HabitacionDTO;
+import com.mbn.model.dto.ReservaDTO;
 import com.mbn.model.service.HabitacionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -28,6 +30,11 @@ public class HabitacionWS {
     @ResponseBody
     public HabitacionDTO obtenerHabitaciones() {
        return habitacionService.obtenerHabitaciones();
+    }
+    @RequestMapping(value = "/obtenerHabitacionesFecha/", method = RequestMethod.GET)
+    @ResponseBody
+    public HabitacionDTO obtenerHabitacionesFecha(@RequestBody ReservaDTO reserva) {
+       return habitacionService.obtenerHabitacionesFecha(reserva);
     }
     
 }

@@ -16,14 +16,13 @@
     <bean id="usuarioDAO" class="com.mbn.model.dao.UsuarioDAOImpl">
         <property name="sessionFactory" ref="SessionFactory" />
     </bean>
-<<<<<<< HEAD
     <bean id="habitacionDAO" class="com.mbn.model.dao.HabitacionDAOImpl">
         <property name="sessionFactory" ref="SessionFactory" />
     </bean>
     <bean id="reservaDAO" class="com.mbn.model.dao.ReservaDAOImpl">
-=======
+            <property name="sessionFactory" ref="SessionFactory" />
+    </bean>
     <bean id="almacenDAO" class="com.mbn.model.dao.AlmacenDAOImpl">
->>>>>>> master
         <property name="sessionFactory" ref="SessionFactory" />
     </bean>
     
