@@ -40,4 +40,11 @@ public class UsuarioWS {
     public UsuarioDTO cambiarContrasena(@RequestParam(value = "correo") String correo){
         return usuarioService.cambiarContrasena(correo);
     }
+    
+    @RequestMapping(value = "/guardarUsuario/", method = RequestMethod.POST)
+    @ResponseBody
+    public UsuarioDTO guardarUsuario( @RequestBody UsuarioDTO datos) {
+       return usuarioService.guardarUsuario(datos);
+    }
+    
 }
