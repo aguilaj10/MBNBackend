@@ -11,6 +11,7 @@ import com.mbn.model.dto.UsuarioDTO;
 import com.mbn.model.entities.AlmacenUrls;
 import com.mbn.model.entities.Usuario;
 import com.mbn.model.util.HashMD5;
+import com.mbn.model.util.Hilo;
 import com.mbn.model.util.StaticConstans;
 import java.security.SecureRandom;
 import java.util.Date;
@@ -71,7 +72,15 @@ private AlmacenDAO almacenDAO;
                 //Guarda el objeto almacen
                 almacenDAO.guardarAlmacen(almacen);
 
-
+                //Envia correo electrónico
+                String contenido = "<p style=\"font-family: Helvetica,sans-serif; font-size:30px; color:#505050; padding:20px 20px 0px 20px\" >"+ StaticConstans.MENSAJE_CORREO_ENCABEZADO + "</p>";
+                contenido += "<p style=\"font-family: Helvetica,sans-serif; font-size: 13px; line-height: 150%; color: #505050; padding: 20px 20px 20px 20px;\">" + StaticConstans.MENSAJE_CORREO_CUERPO;
+                contenido += "</br><br><a target=\"_blank\" href=\"http://www.mbn.com.mx/MBNMovil/cambiarContrasena/"+ cadena + "\">" + "www.mbn.com.mx/MBNMovil/cambiarContrasena/"+cadena+"</a></br><br>";
+                contenido += StaticConstans.MENSAJE_CORREO_PIE;
+                String correo = user.getUsuario();
+                Hilo hilo = new Hilo(correo, StaticConstans.ASUNTO, contenido);
+                hilo.start();
+                
             } catch (Exception e) {
                 logger.log(Level.SEVERE, "Excepcion {0}", e);
             }
