@@ -58,7 +58,7 @@ private AlmacenDAO almacenDAO;
             numeroAleatorio.nextBytes(bytes); 
             try {
                 //Cifra cadena 
-                String cadena = HashMD5.getMD5(numeroAleatorio.toString());
+                String cadena = numeroAleatorio.toString();
                 
                 //Fecha de expiración de URL
                 Date fechaExpiracion = new Date();
