@@ -31,4 +31,6 @@ public interface UsuarioService extends BaseService<Usuario, Integer>{
      * @return
      */
     UsuarioDTO cambiarContrasena(String email);
+    
+    UsuarioDTO guardarUsuario(UsuarioDTO usuarioDTO);
 }

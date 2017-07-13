@@ -16,6 +16,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlTransient;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.SequenceGenerator;
 
 /**
  *
@@ -30,7 +33,8 @@ public class Usuario implements Serializable {
     
     private static final long serialVersionUID = 1L;
     @Id
-    @Basic(optional = false)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqUsuario")
+    @SequenceGenerator(allocationSize = 1, sequenceName = "usuarios_id_seq", name = "seqUsuario")
     @Column(name = "usuario_id")
     private Integer usuarioId;
     @Basic(optional = false)

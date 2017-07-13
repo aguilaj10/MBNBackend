@@ -7,8 +7,10 @@ package com.mbn.model.dao;
 
 import com.googlecode.genericdao.dao.hibernate.GenericDAOImpl;
 import com.googlecode.genericdao.search.Search;
+import com.mbn.model.entities.AlmacenUrls;
 import com.mbn.model.entities.Usuario;
 import com.mbn.model.util.StaticConstans;
+import java.util.List;
 
 /**
  *
@@ -31,6 +33,24 @@ public class UsuarioDAOImpl extends GenericDAOImpl<Usuario, Integer> implements 
         sql.addFilterEqual("usuario", correo);
         sql.addFilterEqual("estado", StaticConstans.HABILITADO);
         return (Usuario) searchUnique(sql);
+    }
+    
+    @Override
+    public boolean guardarUsuario(Usuario usuario) {
+        Search sql = new Search();
+        sql.addFilterEqual("usuario", usuario.getUsuario());
+        List <Usuario> usuarios = search(sql);
+        try {        
+        if(usuarios.size() == 0){
+                save(usuario);
+                return true;
+            } else {
+            return false;
+        }}
+        catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     

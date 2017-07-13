@@ -10,6 +10,7 @@ import com.mbn.model.dao.UsuarioDAO;
 import com.mbn.model.dto.UsuarioDTO;
 import com.mbn.model.entities.AlmacenUrls;
 import com.mbn.model.entities.Usuario;
+import com.mbn.model.util.Capitalize;
 import com.mbn.model.util.HashMD5;
 import com.mbn.model.util.StaticConstans;
 import java.security.SecureRandom;
@@ -82,7 +83,24 @@ private AlmacenDAO almacenDAO;
 
         return dto;
     }
-
+    
+     @Override
+     @Transactional(readOnly = false)//permisos de escritura
+    public UsuarioDTO guardarUsuario(UsuarioDTO usuarioDTO) {
+         UsuarioDTO dto = new UsuarioDTO();
+         usuarioDTO.getUsuario().setContrasena(HashMD5.getMD5(usuarioDTO.getUsuario().getContrasena()));
+         usuarioDTO.getUsuario().setUsuario(usuarioDTO.getUsuario().getUsuario().toLowerCase());
+         usuarioDTO.getUsuario().setNombre(Capitalize.capitalize(usuarioDTO.getUsuario().getNombre()));
+         usuarioDTO.getUsuario().setApellidos(Capitalize.capitalize(usuarioDTO.getUsuario().getApellidos()));
+         if(((UsuarioDAO) getGenericDAO()).guardarUsuario(usuarioDTO.getUsuario())){
+            dto.setTipoMensaje(StaticConstans.MENSAJE_CORRECTO);
+            dto.setCodigoMensaje(StaticConstans.MENSAJE_USUARIO_INSERTADO);
+        }else{
+             dto.setTipoMensaje(StaticConstans.MENSAJE_ERROR);
+             dto.setCodigoMensaje(StaticConstans.MENSAJE_USUARIO_EXISTENTE);
+        }
+        return dto;
+    }
     /**
      * @return the almacenDAO
      */

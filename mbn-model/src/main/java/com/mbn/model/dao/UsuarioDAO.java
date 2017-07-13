@@ -31,4 +31,11 @@ public interface UsuarioDAO extends GenericDAO<Usuario, Integer>{
      */
     Usuario buscarUsuarioPorEmail(String correo);
     
+    /**
+     * Método que registra a un usuario con los datos ingresados
+     *
+     * @param usuario
+     * @return
+     */ 
+    boolean guardarUsuario(Usuario usuario);
 }

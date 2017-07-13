@@ -14,6 +14,9 @@ public class StaticConstans {
     public static int MENSAJE_ERROR = 1;
     public static int MENSAJE_ADVERTENCIA = 2;
     public static int MENSAJE_CORRECTO = 3;
+    
+    public static String MENSAJE_USUARIO_INSERTADO = "El usuario se inserto correctamente";
+    public static String MENSAJE_USUARIO_EXISTENTE = "el usuario ya existe";
 
     public static String MENSAJE_ERROR_SESION = "El usuario o contraseña son incorrectos";
     public static String MENSAJE_ERROR_CONTRASENA = "El correo electrónico no existe";
