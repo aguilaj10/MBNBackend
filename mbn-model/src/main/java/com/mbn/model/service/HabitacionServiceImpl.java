@@ -7,6 +7,7 @@ package com.mbn.model.service;
 
 import com.mbn.model.dao.HabitacionDAO;
 import com.mbn.model.dto.HabitacionDTO;
+import com.mbn.model.dto.ReservaDTO;
 import com.mbn.model.entities.Habitacion;
 import com.mbn.model.util.StaticConstans;
 
@@ -31,6 +32,13 @@ public class HabitacionServiceImpl extends BaseServiceImpl<Habitacion, Integer> 
         }else{
              dto.setTipoMensaje(StaticConstans.MENSAJE_ERROR);
         }
+        return dto;
+    }
+
+    @Override
+    public HabitacionDTO obtenerHabitacionesFecha(ReservaDTO reservaDTO) {
+        HabitacionDTO dto =  new HabitacionDTO();
+        dto.setHabitaciones(((HabitacionDAO) getGenericDAO()).obtenerHabitacionesFecha(reservaDTO.getReserva())); 
         return dto;
     }
     
