@@ -25,6 +25,9 @@
     <bean id="automovilUsuarioDAO" class="com.mbn.model.dao.AutomovilUsuarioDAOImpl">
         <property name="sessionFactory" ref="SessionFactory" />
     </bean>
+    <bean id="viajeDAO" class="com.mbn.model.dao.ViajeDAOImpl">
+        <property name="sessionFactory" ref="SessionFactory" />
+    </bean>
     
     <!-- Service Declaration  -->
     <bean id="usuarioService" class="com.mbn.model.service.UsuarioServiceImpl">
@@ -33,6 +36,9 @@
     </bean>
     <bean id="automovilService" class="com.mbn.model.service.AutomovilServiceImpl">
         <property name="genericDAO" ref="automovilDAO" />
+    </bean>
+    <bean id="viajeService" class="com.mbn.model.service.ViajeServiceImpl">
+        <property name="genericDAO" ref="viajeDAO" />
     </bean>
     
 </beans>

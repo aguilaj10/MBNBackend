@@ -54,9 +54,11 @@ public class AutomovilServiceImpl extends BaseServiceImpl<Automovil, Integer> im
                 automovilDTO.setTipoMensaje(StaticConstans.MENSAJE_CORRECTO);
             } else {
                 automovilDTO.setTipoMensaje(StaticConstans.MENSAJE_ERROR);
+                automovilDTO.setCodigoMensaje(StaticConstans.MENSJAE_ERROR_GUARDAR_AUTOMOVIL);
             }
         } catch (Base64DecodingException ex) {
             automovilDTO.setTipoMensaje(StaticConstans.MENSAJE_ERROR);
+            automovilDTO.setCodigoMensaje(StaticConstans.MENSAJE_ERROR_DECODIFICAR_FOTO_AUTO);
             LOG.log(Level.SEVERE, "Error decodificando la foto del automóvil. \nDESCRIPCIÓN DE ERROR:", ex);
         }
         return automovilDTO;

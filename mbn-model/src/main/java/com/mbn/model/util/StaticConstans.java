@@ -18,6 +18,9 @@ public class StaticConstans {
     public static String MENSAJE_ERROR_SESION = "El usuario o contraseña son incorrectos";
     public static String MENSAJE_ERROR_CONTRASENA = "El correo electrónico no existe";
     public static String MENSAJE_ERROR_GENERAL = "Ocurrió un error inesperado, contacte al administrador";
+    public static String MENSJAE_ERROR_GUARDAR_AUTOMOVIL = "Ocurrió un error al guardar el nuevo automóvil";
+    public static String MENSAJE_ERROR_DECODIFICAR_FOTO_AUTO = "Ocurrió un error procesando la fotografía del automóvil";
+    public static String MENSAJE_ERROR_GUARDAR_VIAJE = "Ocurrió un error al guardar el nuevo viaje";
 
     public static String HABILITADO = "enable";
     public static String INHABILITADO = "disable";

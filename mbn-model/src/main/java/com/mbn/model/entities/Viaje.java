@@ -5,17 +5,22 @@
  */
 package com.mbn.model.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -24,6 +29,12 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "viajes")
 public class Viaje implements Serializable {
+
+    @Basic(optional = false)
+    @Column(name = "lugares_disponibles")
+    private int lugaresDisponibles;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "viajeId")
+    private Collection<ViajeUsuario> viajesUsuariosCollection;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -134,6 +145,23 @@ public class Viaje implements Serializable {
     @Override
     public String toString() {
         return "com.mbn.movil.model.entities.Viajes[ viajeId=" + viajeId + " ]";
+    }
+
+    public int getLugaresDisponibles() {
+        return lugaresDisponibles;
+    }
+
+    public void setLugaresDisponibles(int lugaresDisponibles) {
+        this.lugaresDisponibles = lugaresDisponibles;
+    }
+
+    @XmlTransient @JsonIgnore
+    public Collection<ViajeUsuario> getViajesUsuariosCollection() {
+        return viajesUsuariosCollection;
+    }
+
+    public void setViajesUsuariosCollection(Collection<ViajeUsuario> viajesUsuariosCollection) {
+        this.viajesUsuariosCollection = viajesUsuariosCollection;
     }
     
 }

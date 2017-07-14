@@ -27,6 +27,12 @@ import javax.xml.bind.annotation.XmlTransient;
 @Table(name = "automoviles")
 public class Automovil implements Serializable {
 
+    //@Lob
+    @Column(name = "foto")
+    private byte[] foto;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "automovilId")
+    private Collection<Viaje> viajeCollection;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,9 +46,6 @@ public class Automovil implements Serializable {
     @Basic(optional = false)
     @Column(name = "capacidad")
     private int capacidad;
-    //@Lob
-    @Column(name = "foto")
-    private byte[] foto;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "automovilId")
     private Collection<AutomovilUsuario> automovilesUsuariosCollection;
 
@@ -90,13 +93,6 @@ public class Automovil implements Serializable {
         this.capacidad = capacidad;
     }
 
-    public byte[] getFoto() {
-        return foto;
-    }
-
-    public void setFoto(byte[] foto) {
-        this.foto = foto;
-    }
 
     @XmlTransient @JsonIgnore
     public Collection<AutomovilUsuario> getAutomovilesUsuariosCollection() {
@@ -130,6 +126,23 @@ public class Automovil implements Serializable {
     @Override
     public String toString() {
         return "com.mbn.model.entities.Automoviles[ automovilId=" + automovilId + " ]";
+    }
+
+    public byte[] getFoto() {
+        return foto;
+    }
+
+    public void setFoto(byte[] foto) {
+        this.foto = foto;
+    }
+
+    @XmlTransient @JsonIgnore
+    public Collection<Viaje> getViajeCollection() {
+        return viajeCollection;
+    }
+
+    public void setViajeCollection(Collection<Viaje> viajeCollection) {
+        this.viajeCollection = viajeCollection;
     }
     
 }

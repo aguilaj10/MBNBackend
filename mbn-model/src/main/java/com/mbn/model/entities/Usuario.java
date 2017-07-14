@@ -27,6 +27,9 @@ import javax.xml.bind.annotation.XmlTransient;
 @Table(name = "usuarios")
 public class Usuario implements Serializable {
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuarioId")
+    private Collection<ViajeUsuario> viajesUsuariosCollection;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -141,6 +144,15 @@ public class Usuario implements Serializable {
     @Override
     public String toString() {
         return "com.mbn.model.entities.Usuarios[ usuarioId=" + usuarioId + " ]";
+    }
+
+    @XmlTransient @JsonIgnore
+    public Collection<ViajeUsuario> getViajesUsuariosCollection() {
+        return viajesUsuariosCollection;
+    }
+
+    public void setViajesUsuariosCollection(Collection<ViajeUsuario> viajesUsuariosCollection) {
+        this.viajesUsuariosCollection = viajesUsuariosCollection;
     }
     
 }
