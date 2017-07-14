@@ -5,6 +5,7 @@
  */
 package com.mbn.ws;
 
+import com.mbn.model.dto.EdificioDTO;
 import com.mbn.model.dto.HabitacionDTO;
 import com.mbn.model.dto.ReservaDTO;
 import com.mbn.model.service.HabitacionService;
@@ -33,7 +34,7 @@ public class HabitacionWS {
     }
     @RequestMapping(value = "/obtenerHabitacionesFecha/", method = RequestMethod.GET)
     @ResponseBody
-    public HabitacionDTO obtenerHabitacionesFecha(@RequestBody ReservaDTO reserva) {
+    public HabitacionDTO obtenerHabitacionesFecha(@RequestBody EdificioDTO reserva) {
        return habitacionService.obtenerHabitacionesFecha(reserva);
     }
     
