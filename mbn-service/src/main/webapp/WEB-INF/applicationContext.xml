@@ -26,6 +26,13 @@
         <property name="sessionFactory" ref="SessionFactory" />
     </bean>
     <bean id="edificioDAO" class="com.mbn.model.dao.EdificioDAOImpl">
+    <bean id="automovilDAO" class="com.mbn.model.dao.AutomovilDAOImpl">
+        <property name="sessionFactory" ref="SessionFactory" />
+    </bean>
+    <bean id="automovilUsuarioDAO" class="com.mbn.model.dao.AutomovilUsuarioDAOImpl">
+        <property name="sessionFactory" ref="SessionFactory" />
+    </bean>
+    <bean id="viajeDAO" class="com.mbn.model.dao.ViajeDAOImpl">
         <property name="sessionFactory" ref="SessionFactory" />
     </bean>
     
@@ -33,6 +40,12 @@
     <bean id="usuarioService" class="com.mbn.model.service.UsuarioServiceImpl">
         <property name="genericDAO" ref="usuarioDAO" />
         <property name="almacenDAO" ref="almacenDAO" />
+    </bean>
+    <bean id="automovilService" class="com.mbn.model.service.AutomovilServiceImpl">
+        <property name="genericDAO" ref="automovilDAO" />
+    </bean>
+    <bean id="viajeService" class="com.mbn.model.service.ViajeServiceImpl">
+        <property name="genericDAO" ref="viajeDAO" />
     </bean>
     
     <bean id="habitacionService" class="com.mbn.model.service.HabitacionServiceImpl">

@@ -14,7 +14,6 @@ import com.mbn.model.util.HashMD5;
 import com.mbn.model.util.Hilo;
 import com.mbn.model.util.StaticConstans;
 import java.security.SecureRandom;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.logging.Logger;
 import org.springframework.transaction.annotation.Transactional;
@@ -97,6 +96,13 @@ public class UsuarioServiceImpl extends BaseServiceImpl<Usuario, Integer> implem
         return dto;
     }
 
+    @Override
+    public UsuarioDTO buscarUsuarios() {
+        UsuarioDTO dto = new UsuarioDTO();
+        dto.setUsuarios(((UsuarioDAO)getGenericDAO()).buscarUsuarios());
+        return dto;
+    }
+    
     @Override
     public UsuarioDTO buscarUsuario(String cadena) {
         UsuarioDTO dto = new UsuarioDTO();
