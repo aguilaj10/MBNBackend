@@ -22,7 +22,7 @@ public class ReservaDAOImpl extends GenericDAOImpl<Reserva, Integer> implements 
 
     @Override
     public boolean guardaReserva(Reserva reserva) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return save(reserva);
     }
 
 }
