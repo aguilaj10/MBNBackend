@@ -6,13 +6,12 @@
 package com.mbn.model.dao;
 
 import com.googlecode.genericdao.dao.hibernate.GenericDAO;
-import com.mbn.model.entities.Automovil;
+import com.mbn.model.entities.Viaje;
 
 /**
  *
  * @author MBN USER
  */
-public interface AutomovilDAO extends GenericDAO<Automovil, Integer>{
-    boolean guardarAutomovil(Automovil automovil);
-    Automovil buscarAutomovilPorId(int automovil_id);
+public interface ViajeDAO extends GenericDAO<Viaje, Integer>{
+    boolean guardarViaje(Viaje viaje);
 }

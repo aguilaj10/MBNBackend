@@ -18,5 +18,11 @@ public class AutomovilDAOImpl extends GenericDAOImpl<Automovil, Integer> impleme
     public boolean guardarAutomovil(Automovil automovil) {
         return save(automovil);
     }
+
+    @Override
+    public Automovil buscarAutomovilPorId(int automovil_id) {
+       Automovil automovil = new Automovil();
+       return automovil;
+    }
     
 }
