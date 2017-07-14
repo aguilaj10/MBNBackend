@@ -43,25 +43,11 @@ public class UsuarioWS {
     public UsuarioDTO buscarUsuario(@RequestParam(value = "cadena") String cadena) {
         return usuarioService.buscarUsuario(cadena);
     }
-    
-<<<<<<< HEAD
-<<<<<<< HEAD
-     @RequestMapping(method = RequestMethod.GET, value = "/cambiarContrasena")
-    @ResponseBody
-    public UsuarioDTO cambiarContrasena(@RequestParam(value = "correo") String correo){
-        return usuarioService.cambiarContrasena(correo);
-    }
-=======
-=======
->>>>>>> origin/jst-crudAutomoviles
+
     @RequestMapping(value = "/obtenerUsuarios/", method = RequestMethod.GET)
     @ResponseBody
     public UsuarioDTO buscarUsuarios() {
         return usuarioService.buscarUsuarios();
     }
-    
-<<<<<<< HEAD
->>>>>>> origin/jst-crudAutomoviles
-=======
->>>>>>> origin/jst-crudAutomoviles
+
 }
