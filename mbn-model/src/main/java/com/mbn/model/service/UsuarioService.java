@@ -12,8 +12,9 @@ import com.mbn.model.entities.Usuario;
  *
  * @author annelkaren
  */
-public interface UsuarioService extends BaseService<Usuario, Integer>{
-      /**
+public interface UsuarioService extends BaseService<Usuario, Integer> {
+
+    /**
      * Método que valida que el usuario que intenta acceder a la aplicación se
      * encuentre registrado y con estatus activo.
      *
@@ -31,4 +32,14 @@ public interface UsuarioService extends BaseService<Usuario, Integer>{
      * @return
      */
     UsuarioDTO cambiarContrasena(String email);
+
+    /**
+     * Método que busca a un usuario con la cadena que le fue enviada a su
+     * correo electrónico
+     *
+     * @param cadena
+     * @return
+     */
+    UsuarioDTO buscarUsuario(String cadena);
+
 }

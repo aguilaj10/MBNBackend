@@ -39,4 +39,11 @@ public class AlmacenDAOImpl extends GenericDAOImpl<AlmacenUrls, Integer> impleme
         }
 
     }
+
+    @Override
+    public AlmacenUrls buscarAlmacen(String url) {
+        Search sql = new Search();
+        sql.addFilterEqual("cadena", url);
+        return (AlmacenUrls) searchUnique(sql);
+    }
 }

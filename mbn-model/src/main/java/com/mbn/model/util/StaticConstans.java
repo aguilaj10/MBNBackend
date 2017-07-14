@@ -17,12 +17,15 @@ public class StaticConstans {
 
     //MENSAJES
     public static String MENSAJE_ERROR_SESION = "El usuario o contraseña son incorrectos";
-    public static String MENSAJE_ERROR_CONTRASENA = "El correo electrónico no existe";
+    public static String MENSAJE_ERROR_CONTRASENA = "El correo electrónico no se encuentra registrado";
     public static String MENSAJE_ERROR_GENERAL = "Ocurrió un error inesperado, contacte al administrador";
     public static String MENSAJE_CORREO_ENCABEZADO = "Notificaci&oacute;n de cambio de contrase&ntilde;a";
     public static String MENSAJE_CORREO_CUERPO = "Haga clic en el siguiente enlace para cambiar la contrase&ntilde;a de la cuenta que utiliza para acceder a MBN M&oacute;vil.";
     public static String MENSAJE_CORREO_PIE = "Este enlace caduca 24 horas despu&eacute;s de su fecha de env&iacute;o. El enlace le dirige a la p&aacute;gina de cambio de contrase&ntilde;as de MBN M&oacute;vil, donde podr&aacute; introducir una nueva.";
-    
+    public static String MENSAJE_ENVIO_CORREO = "Email enviado con éxito";
+    public static String MENSAJE_URL_NO_EXISTE = "No es posible realizar la solicitud";
+    public static String MENSAJE_URL_EXPIRADA = "La URL proporcionada ha caducado";
+        
     //BANDERAS
     public static String HABILITADO = "enable";
     public static String INHABILITADO = "disable";
