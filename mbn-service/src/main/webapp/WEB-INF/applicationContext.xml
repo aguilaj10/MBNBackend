@@ -32,7 +32,7 @@
     <!-- Service Declaration  -->
     <bean id="usuarioService" class="com.mbn.model.service.UsuarioServiceImpl">
         <property name="genericDAO" ref="usuarioDAO" />
-                <property name="almacenDAO" ref="almacenDAO" />
+        <property name="almacenDAO" ref="almacenDAO" />
     </bean>
     <bean id="automovilService" class="com.mbn.model.service.AutomovilServiceImpl">
         <property name="genericDAO" ref="automovilDAO" />

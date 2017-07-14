@@ -8,6 +8,7 @@ package com.mbn.model.dao;
 import com.googlecode.genericdao.dao.hibernate.GenericDAOImpl;
 import com.googlecode.genericdao.search.Search;
 import com.mbn.model.entities.AlmacenUrls;
+import java.util.logging.Logger;
 
 /**
  *
@@ -15,23 +16,34 @@ import com.mbn.model.entities.AlmacenUrls;
  */
 public class AlmacenDAOImpl extends GenericDAOImpl<AlmacenUrls, Integer> implements AlmacenDAO {
 
+    private static Logger logger = Logger.getLogger(AlmacenDAOImpl.class.getName());
+
     @Override
     public boolean guardarAlmacen(AlmacenUrls almacen) {
         Search sql = new Search();
         sql.addFilterEqual("usuarioId.usuarioId", almacen.getUsuarioId().getUsuarioId());
+        AlmacenUrls almacenUrl = (AlmacenUrls) searchUnique(sql);
         try {
-            if (almacen.getAlmacenId() != null && almacen.getAlmacenId() >0) {
-                sql.addFilterNotEqual("almacenId", almacen.getAlmacenId());
-            }
-            if (searchUnique(sql) == null) {
+            if (almacenUrl != null) {
+                almacenUrl.setCadena(almacen.getCadena());
+                almacenUrl.setFechaExpiracion(almacen.getFechaExpiracion());
+                almacenUrl.setUsuarioId(almacen.getUsuarioId());
+                save(almacenUrl);
+            } else {
                 save(almacen);
-                return true;
             }
-            return false;
+            return true;
         } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
 
+    }
+
+    @Override
+    public AlmacenUrls buscarAlmacen(String url) {
+        Search sql = new Search();
+        sql.addFilterEqual("cadena", url);
+        return (AlmacenUrls) searchUnique(sql);
     }
 }
