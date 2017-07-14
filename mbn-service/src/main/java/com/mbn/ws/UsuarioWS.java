@@ -43,4 +43,11 @@ public class UsuarioWS {
     public UsuarioDTO buscarUsuario(@RequestParam(value = "cadena") String cadena) {
         return usuarioService.buscarUsuario(cadena);
     }
+    
+    @RequestMapping(value = "/obtenerUsuarios/", method = RequestMethod.GET)
+    @ResponseBody
+    public UsuarioDTO buscarUsuarios() {
+        return usuarioService.buscarUsuarios();
+    }
+    
 }
