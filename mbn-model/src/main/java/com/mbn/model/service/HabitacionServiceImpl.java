@@ -6,6 +6,7 @@
 package com.mbn.model.service;
 
 import com.mbn.model.dao.HabitacionDAO;
+import com.mbn.model.dto.EdificioDTO;
 import com.mbn.model.dto.HabitacionDTO;
 import com.mbn.model.dto.ReservaDTO;
 import com.mbn.model.entities.Habitacion;
@@ -35,10 +36,9 @@ public class HabitacionServiceImpl extends BaseServiceImpl<Habitacion, Integer> 
         return dto;
     }
 
-    @Override
-    public HabitacionDTO obtenerHabitacionesFecha(ReservaDTO reservaDTO) {
+    public HabitacionDTO obtenerHabitacionesFecha(EdificioDTO edificioDTO) {
         HabitacionDTO dto =  new HabitacionDTO();
-        dto.setHabitaciones(((HabitacionDAO) getGenericDAO()).obtenerHabitacionesFecha(reservaDTO.getReserva())); 
+        dto.setHabitaciones(((HabitacionDAO) getGenericDAO()).obtenerHabitacionesFecha(edificioDTO.getEdificio(), edificioDTO.getFechaInicio(), edificioDTO.getFechaFin())); 
         return dto;
     }
     

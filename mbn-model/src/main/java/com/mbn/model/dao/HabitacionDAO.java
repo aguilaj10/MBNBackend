@@ -6,8 +6,8 @@
 package com.mbn.model.dao;
 
 import com.googlecode.genericdao.dao.hibernate.GenericDAO;
+import com.mbn.model.entities.Edificio;
 import com.mbn.model.entities.Habitacion;
-import com.mbn.model.entities.Reserva;
 import java.util.List;
 
 /**
@@ -18,7 +18,7 @@ public interface HabitacionDAO extends GenericDAO<Habitacion, Integer>{
     
     List<Habitacion> obtenerHabitaciones();
     
-    List<Habitacion> obtenerHabitacionesFecha(Reserva reserva);
+    List<Habitacion> obtenerHabitacionesFecha(Edificio edificio,String fechaInicio, String fechaFin);
     
     boolean guardarHabitacion(Habitacion habitacion);
     

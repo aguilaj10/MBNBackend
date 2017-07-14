@@ -7,6 +7,7 @@ package com.mbn.model.dao;
 
 import com.googlecode.genericdao.dao.hibernate.GenericDAOImpl;
 import com.googlecode.genericdao.search.Search;
+import com.mbn.model.entities.Edificio;
 import com.mbn.model.entities.Habitacion;
 import com.mbn.model.entities.Reserva;
 
@@ -36,11 +37,12 @@ public class HabitacionDAOImpl extends GenericDAOImpl<Habitacion, Integer> imple
         }
 
     @Override
-    public List<Habitacion> obtenerHabitacionesFecha(Reserva reserva) {
+    public List<Habitacion> obtenerHabitacionesFecha(Edificio edificio, String fechaInicio, String fechaFin) {
         
        Search sql =  new Search();
-       sql.addFilterLessOrEqual("fecha_inicio", reserva.getFechaInicio());
-       sql.addFilterGreaterOrEqual("fecha_fin", reserva.getFechaFin());
+       sql.addFilterEqual("edificio_id", edificio.getEdificioId());
+       sql.addFilterLessOrEqual("fecha_inicio", fechaInicio);
+       sql.addFilterGreaterOrEqual("fecha_fin", fechaFin);
        List<Habitacion> habitaciones = search(sql);
        return (habitaciones);
         }

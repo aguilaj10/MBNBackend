@@ -44,7 +44,7 @@ public class Edificio implements Serializable {
     private Boolean estacionamiento;
     @OneToMany(mappedBy = "edificioId")
     private Collection<Habitacion> habitacionesCollection;
-
+   
     public Edificio() {
     }
 
