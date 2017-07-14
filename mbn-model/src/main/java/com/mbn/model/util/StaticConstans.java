@@ -27,7 +27,6 @@ public class StaticConstans {
     public static String MENSAJE_CORREO_CUERPO = "Haga clic en el siguiente enlace para cambiar la contrase&ntilde;a de la cuenta que utiliza para acceder a MBN M&oacute;vil.";
     public static String MENSAJE_CORREO_PIE = "Este enlace caduca 24 horas despu&eacute;s de su fecha de env&iacute;o. El enlace le dirige a la p&aacute;gina de cambio de contrase&ntilde;as de MBN M&oacute;vil, donde podr&aacute; introducir una nueva.";
     public static String MENSAJE_ENVIO_CORREO = "Email enviado con éxito";
-    public static String MENSAJE_URL_NO_EXISTE = "No es posible realizar la solicitud";
     public static String MENSAJE_URL_EXPIRADA = "La URL proporcionada ha caducado";
         
     //BANDERAS

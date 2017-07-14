@@ -118,7 +118,7 @@ public class UsuarioServiceImpl extends BaseServiceImpl<Usuario, Integer> implem
             }
         } else {
             dto.setTipoMensaje(StaticConstans.MENSAJE_ERROR);
-            dto.setCodigoMensaje(StaticConstans.MENSAJE_URL_NO_EXISTE);
+            dto.setCodigoMensaje(StaticConstans.MENSAJE_URL_EXPIRADA);
         }}
         catch(Exception ex){
             ex.printStackTrace();
