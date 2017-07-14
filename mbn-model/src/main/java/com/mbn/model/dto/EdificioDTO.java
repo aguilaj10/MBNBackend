@@ -16,6 +16,8 @@ import java.util.List;
 public class EdificioDTO extends GenericDTO implements Serializable {
     private List<Edificio> edificios;
     private Edificio edificio;
+    private String fechaInicio;
+    private String fechaFin;
 
     /**
      * @return the edificios
@@ -43,6 +45,34 @@ public class EdificioDTO extends GenericDTO implements Serializable {
      */
     public void setEdificio(Edificio edificio) {
         this.edificio = edificio;
+    }
+
+    /**
+     * @return the fechaInicio
+     */
+    public String getFechaInicio() {
+        return fechaInicio;
+    }
+
+    /**
+     * @param fechaInicio the fechaInicio to set
+     */
+    public void setFechaInicio(String fechaInicio) {
+        this.fechaInicio = fechaInicio;
+    }
+
+    /**
+     * @return the fechaFin
+     */
+    public String getFechaFin() {
+        return fechaFin;
+    }
+
+    /**
+     * @param fechaFin the fechaFin to set
+     */
+    public void setFechaFin(String fechaFin) {
+        this.fechaFin = fechaFin;
     }
     
 }
