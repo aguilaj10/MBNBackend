@@ -8,6 +8,7 @@ package com.mbn.ws;
 import com.mbn.model.dto.ReservaDTO;
 import com.mbn.model.service.ReservaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -27,6 +28,12 @@ public class ReservaWS {
     @RequestMapping(value= "/obtenerReservas/", method = RequestMethod.GET)
     @ResponseBody
     public ReservaDTO obtenerReservas(){
-    return reservaService.obtenerReservaciones();
+        return reservaService.obtenerReservaciones();
+    }
+    
+    @RequestMapping(value = "/guardarReserva/" , method = RequestMethod.POST)
+    @ResponseBody
+    public ReservaDTO guardarReserva(@RequestBody ReservaDTO reserva){
+        return reservaService.guardarReserva(reserva);
     }
 }

@@ -38,7 +38,7 @@
     <bean id="habitacionService" class="com.mbn.model.service.HabitacionServiceImpl">
         <property name="genericDAO" ref="habitacionDAO" />
     </bean>
-    <bean id="ReservaService" class="com.mbn.model.service.ReservaServiceImpl">
+    <bean id="reservaService" class="com.mbn.model.service.ReservaServiceImpl">
         <property name="genericDAO" ref="reservaDAO" />
     </bean>
     
