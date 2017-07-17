@@ -33,10 +33,11 @@ public interface UsuarioDAO extends GenericDAO<Usuario, Integer>{
     Usuario buscarUsuarioPorEmail(String correo);
     
     /**
-     * Método que busca a todos los usuarios registrados
+     * Método utilizado para obtener a los usuarios disponibles para ser conductores
      * 
+     * @param usuario_maestro_id
      * @return 
      */
-    List<Usuario> buscarUsuarios();
+    List<Usuario> buscarConductores(int usuario_maestro_id);
     
 }

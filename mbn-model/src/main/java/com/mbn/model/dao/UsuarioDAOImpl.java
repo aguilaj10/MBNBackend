@@ -35,8 +35,10 @@ public class UsuarioDAOImpl extends GenericDAOImpl<Usuario, Integer> implements 
     }
 
     @Override
-    public List<Usuario> buscarUsuarios() {
-        return findAll();
+    public List<Usuario> buscarConductores(int usuario_maestro_id) {
+        Search sql = new Search();
+        sql.addFilterNotEqual("usuarioId", usuario_maestro_id);
+        return search(sql);
     }
 
     

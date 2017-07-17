@@ -97,9 +97,9 @@ public class UsuarioServiceImpl extends BaseServiceImpl<Usuario, Integer> implem
     }
 
     @Override
-    public UsuarioDTO buscarUsuarios() {
+    public UsuarioDTO buscarConductores(UsuarioDTO usuarioDTO) {
         UsuarioDTO dto = new UsuarioDTO();
-        dto.setUsuarios(((UsuarioDAO)getGenericDAO()).buscarUsuarios());
+        dto.setUsuarios(((UsuarioDAO)getGenericDAO()).buscarConductores(usuarioDTO.getUsuario().getUsuarioId()));
         return dto;
     }
     

@@ -43,11 +43,11 @@ public class UsuarioWS {
     public UsuarioDTO buscarUsuario(@RequestParam(value = "cadena") String cadena) {
         return usuarioService.buscarUsuario(cadena);
     }
-    
-    @RequestMapping(value = "/obtenerUsuarios/", method = RequestMethod.GET)
+
+    @RequestMapping(value = "/obtenerConductores", method = RequestMethod.POST)
     @ResponseBody
-    public UsuarioDTO buscarUsuarios() {
-        return usuarioService.buscarUsuarios();
+    public UsuarioDTO buscarConductores(@RequestBody UsuarioDTO usuarioDTO) {
+        return usuarioService.buscarConductores(usuarioDTO);
     }
-    
+
 }

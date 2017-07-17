@@ -34,11 +34,12 @@ public interface UsuarioService extends BaseService<Usuario, Integer> {
     UsuarioDTO cambiarContrasena(String email);
     
     /**
-     * Método utilizado para obtener todos los usuarios registrados
+     * Método utilizado para obtener a los usuarios disponibles para ser conductores
      * 
+     * @param usuarioDTO
      * @return 
      */
-    UsuarioDTO buscarUsuarios();
+    UsuarioDTO buscarConductores(UsuarioDTO usuarioDTO);
 
     /**
      * Método que busca a un usuario con la cadena que le fue enviada a su
