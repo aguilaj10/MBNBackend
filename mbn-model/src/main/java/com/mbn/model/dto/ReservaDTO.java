@@ -16,7 +16,6 @@ import java.util.List;
 public class ReservaDTO extends GenericDTO implements Serializable {
     private Reserva reserva;
     private List<Reserva> reservas;
-
     /**
      * @return the reserva
      */
@@ -44,5 +43,5 @@ public class ReservaDTO extends GenericDTO implements Serializable {
     public void setReservas(List<Reserva> reservas) {
         this.reservas = reservas;
     }
-    
+
 }

@@ -8,7 +8,9 @@ package com.mbn.model.service;
 import com.mbn.model.dao.ReservaDAO;
 import com.mbn.model.dto.ReservaDTO;
 import com.mbn.model.entities.Reserva;
+import com.mbn.model.util.DateFormatingTool;
 import com.mbn.model.util.StaticConstans;
+import java.util.List;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
@@ -18,9 +20,15 @@ import org.springframework.transaction.annotation.Transactional;
 public class ReservaServiceImpl extends BaseServiceImpl<Reserva, Integer> implements ReservaService {
 
     @Override
-    public ReservaDTO obtenerReservaciones() {
+    public ReservaDTO obtenerReservaciones() {        
         ReservaDTO dto = new ReservaDTO();
         dto.setReservas(((ReservaDAO) getGenericDAO()).obtenerReservas());
+        List<Reserva> reservas = dto.getReservas();
+        for (int i = 0; i < reservas.size(); i++) {
+            System.out.println("ID Lista RESERVAS: " + dto.getReservas().get(i).getReservaId());
+            dto.getReservas().get(i).setFechaInicioFormateada(DateFormatingTool.dateToString(dto.getReservas().get(i).getFechaInicio()));
+            dto.getReservas().get(i).setFechaFinFormateada(DateFormatingTool.dateToString(dto.getReservas().get(i).getFechaFin()));
+        }
         return dto;
     }
 

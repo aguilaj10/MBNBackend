@@ -18,6 +18,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 /**
  *
@@ -42,6 +43,11 @@ public class Reserva implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaFin;
     @Column(name = "estado")
+    /*Propiedades de fechas formateadas*/
+    @Transient
+    private String fechaInicioFormateada;
+    @Transient
+    private String fechaFinFormateada;
     private String estado;
     @JoinColumn(name = "habitacion_id", referencedColumnName = "habitacion_id")
     @ManyToOne(optional = false)
@@ -135,5 +141,33 @@ public class Reserva implements Serializable {
     public String toString() {
         return "com.mbn.movil.model.entities.Reservas[ reservaId=" + reservaId + " ]";
     }
-    
+
+    /**
+     * @return the fechaInicioFormateada
+     */
+    public String getFechaInicioFormateada() {
+        return fechaInicioFormateada;
+    }
+
+    /**
+     * @param fechaInicioFormateada the fechaInicioFormateada to set
+     */
+    public void setFechaInicioFormateada(String fechaInicioFormateada) {
+        this.fechaInicioFormateada = fechaInicioFormateada;
+    }
+
+    /**
+     * @return the fechaFinFormateada
+     */
+    public String getFechaFinFormateada() {
+        return fechaFinFormateada;
+    }
+
+    /**
+     * @param fechaFinFormateada the fechaFinFormateada to set
+     */
+    public void setFechaFinFormateada(String fechaFinFormateada) {
+        this.fechaFinFormateada = fechaFinFormateada;
+    }
+
 }
