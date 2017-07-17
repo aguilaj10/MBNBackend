@@ -9,6 +9,7 @@ import com.googlecode.genericdao.dao.hibernate.GenericDAOImpl;
 import com.googlecode.genericdao.search.Search;
 import com.mbn.model.entities.Usuario;
 import com.mbn.model.util.StaticConstans;
+import java.util.List;
 
 /**
  *
@@ -31,6 +32,13 @@ public class UsuarioDAOImpl extends GenericDAOImpl<Usuario, Integer> implements 
         sql.addFilterEqual("usuario", correo);
         sql.addFilterEqual("estado", StaticConstans.HABILITADO);
         return (Usuario) searchUnique(sql);
+    }
+
+    @Override
+    public List<Usuario> buscarConductores(int usuario_maestro_id) {
+        Search sql = new Search();
+        sql.addFilterNotEqual("usuarioId", usuario_maestro_id);
+        return search(sql);
     }
 
     
