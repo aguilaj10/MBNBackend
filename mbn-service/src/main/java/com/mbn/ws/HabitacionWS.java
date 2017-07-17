@@ -32,7 +32,7 @@ public class HabitacionWS {
     public HabitacionDTO obtenerHabitaciones() {
        return habitacionService.obtenerHabitaciones();
     }
-    @RequestMapping(value = "/obtenerHabitacionesFecha/", method = RequestMethod.GET)
+    @RequestMapping(value = "/obtenerHabitacionesFecha/", method = RequestMethod.POST)
     @ResponseBody
     public HabitacionDTO obtenerHabitacionesFecha(@RequestBody EdificioDTO reserva) {
        return habitacionService.obtenerHabitacionesFecha(reserva);
